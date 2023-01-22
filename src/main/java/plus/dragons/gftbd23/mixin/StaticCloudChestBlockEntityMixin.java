@@ -16,7 +16,7 @@ import javax.annotation.Nullable;
 public class StaticCloudChestBlockEntityMixin {
 
     @SuppressWarnings("all")
-    @Inject(method = "getCapability", at = @At("HEAD"))
+    @Inject(method = "getCapability", at = @At("HEAD"), remap = false)
     private <T> void injected(Capability<T> capability, @Nullable Direction facing, CallbackInfoReturnable<LazyOptional<T>> cir) {
         // Just give it whatever direction. No impact.
         if(facing==null)
